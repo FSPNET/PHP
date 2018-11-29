@@ -20,17 +20,15 @@ RUN apk update && apk add --no-cache --virtual .build-deps \
        gettext-dev \
        freetype-dev \
        libjpeg-turbo-dev \
+       libmcrypt-dev \
+       openssl \
     && docker-php-ext-configure gd --with-freetype-dir=/usr/include/ --with-jpeg-dir=/usr/include/ \
     && docker-php-ext-configure opcache --enable-opcache \
-    && docker-php-ext-install gd pdo_mysql mysqli pgsql pdo_pgsql opcache zip xmlrpc exif bcmath intl zip soap iconv gettext sockets \
+    && docker-php-ext-install gd pdo_mysql mysqli pgsql pdo_pgsql opcache zip xmlrpc exif bcmath intl zip soap iconv gettext sockets pdo mbstring \
     && pecl install imagick \
 	&& docker-php-ext-enable imagick \
+    && curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer \
     && apk del .build-deps
-
-# PHP Composer
-RUN wget https://dl.laravel-china.org/composer.phar -O /usr/local/bin/composer \
-    && chmod a+x /usr/local/bin/composer \
-    && composer config -g repo.packagist composer https://packagist.laravel-china.org
 
 COPY php.ini /usr/local/etc/php/php.ini
 
