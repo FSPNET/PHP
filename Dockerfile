@@ -26,7 +26,8 @@ RUN apk update && apk add --no-cache --virtual .build-deps \
     && docker-php-ext-configure opcache --enable-opcache \
     && docker-php-ext-install gd pdo_mysql mysqli pgsql pdo_pgsql opcache zip xmlrpc exif bcmath intl zip soap iconv gettext sockets pdo mbstring \
     && pecl install imagick \
-	&& docker-php-ext-enable imagick \
+    && pecl install xdebug \
+	&& docker-php-ext-enable imagick xdebug \
     && curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer \
     && apk del .build-deps
 
