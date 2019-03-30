@@ -13,9 +13,7 @@ before_script:
 build:
     script:
         - docker build -t $CI_REGISTRY_IMAGE -t $CI_REGISTRY_IMAGE:$STABLE_VERSION -t $CI_REGISTRY_IMAGE:stable 73
-        - docker build -t $CI_REGISTRY_IMAGE:7.2 72
         - docker push $CI_REGISTRY_IMAGE
         - docker push $CI_REGISTRY_IMAGE:stable
         - docker push $CI_REGISTRY_IMAGE:$STABLE_VERSION
-        - docker push $CI_REGISTRY_IMAGE:7.2        
         
