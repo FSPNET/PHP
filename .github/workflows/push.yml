@@ -3,7 +3,8 @@ name: Docker Build
 on: push
 
 jobs:
-  build:
+  publish-to-docker-io:
+    name: Publish to Docker.io
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v1
@@ -13,9 +14,15 @@ jobs:
         password: ${{ secrets.DOCKER_TOKEN }}
         repository: fspnetwork/php
         tags: edge
+  publish-to-github-pkg:
+    name: Publish to GitHub Package Registry
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v1
     - uses: jerray/publish-docker-action@master
       with:
         username: ${{ secrets.GITHUB_USERNAME }}
         password: ${{ secrets.GITHUB_PR_TOKEN }}
-        repository: docker.pkg.github.com/FSPNET/php
+        registry: docker.pkg.github.com
+        repository: fspnet/php
         tags: edge
