@@ -1,0 +1,21 @@
+name: Docker Build
+
+on: push
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v1
+    - uses: jerray/publish-docker-action@master
+      with:
+        username: ${{ secrets.DOCKER_USERNAME }}
+        password: ${{ secrets.DOCKER_TOKEN }}
+        repository: fspnetwork/php
+        tags: edge
+    - uses: jerray/publish-docker-action@master
+      with:
+        username: ${{ secrets.GITHUB_USERNAME }}
+        password: ${{ secrets.GITHUB_PR_TOKEN }}
+        repository: docker.pkg.github.com/FSPNET/php
+        tags: edge
