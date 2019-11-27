@@ -1,6 +1,6 @@
 FROM alpine:3.10 as builder
 
-ARG PHP_VERSION=7.3.11
+ARG PHP_VERSION=7.3.12
 ARG COMPOSER_VERSION=1.9.1
 
 RUN set -ex \
@@ -304,6 +304,7 @@ FROM alpine:3.10
 COPY --from=builder /usr/local/ /usr/local/
 
 RUN set -ex \
+  && mkdir -p /usr/local/etc/php/conf.d \
   && runDeps="$( \
     scanelf --needed --nobanner --format '%n#p' --recursive /usr/ \
       | tr ',' '\n' \
