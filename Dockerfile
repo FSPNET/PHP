@@ -1,6 +1,6 @@
 FROM alpine:3.10 as builder
 
-ARG PHP_VERSION=7.4.0
+ARG PHP_VERSION=7.4.1
 ARG COMPOSER_VERSION=1.9.1
 
 RUN set -ex \
