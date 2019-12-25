@@ -3,6 +3,8 @@ FROM alpine:3.10 as builder
 ARG PHP_VERSION=7.4.1
 ARG COMPOSER_VERSION=1.9.1
 
+ENV PHP_INI_DIR /usr/local/etc/php
+
 RUN set -ex \
   && apk upgrade \
   && apk add --no-cache gnupg \
@@ -308,7 +310,6 @@ FROM alpine:3.10
 COPY --from=builder /usr/local/ /usr/local/
 
 RUN set -ex \
-  && mkdir -p /usr/local/etc/php/conf.d \
   && runDeps="$( \
     scanelf --needed --nobanner --format '%n#p' --recursive /usr/ \
       | tr ',' '\n' \
