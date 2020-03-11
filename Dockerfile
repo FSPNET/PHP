@@ -1,22 +1,22 @@
 FROM alpine:3.11.3 as builder
 
-ARG PHP_VERSION=7.4.1
+ARG PHP_VERSION=7.4.2
 ARG COMPOSER_VERSION=1.9.1
+ARG PHP_URL=https://www.php.net/get/php-$PHP_VERSION.tar.xz/from/this/mirror
+ARG PHP_ASC_URL=https://www.php.net/get/php-$PHP_VERSION.tar.xz.asc/from/this/mirror
+ENV GPG_KEYS 42670A7FE4D0441C8E4632349E4FDC074A4EF02D 5A52880781F755608BF815FC910DEB46F53EA312
 
 ENV PHP_INI_DIR /usr/local/etc/php
 
 RUN set -ex \
   && apk upgrade \
-  && apk add --no-cache gnupg \
+  && apk add --no-cache curl gnupg \
   && mkdir -p /usr/src \
   && cd /usr/src \
-  && wget -O php.tar.xz https://secure.php.net/get/php-$PHP_VERSION.tar.xz/from/this/mirror \
-  && wget -O php.tar.xz.asc https://secure.php.net/get/php-$PHP_VERSION.tar.xz.asc/from/this/mirror \
+  && curl -fsSL -o php.tar.xz $PHP_URL \
+  && curl -fsSL -o php.tar.xz.asc $PHP_ASC_URL \
   && export GNUPGHOME="$(mktemp -d)"; \
-    for key in \
-      42670A7FE4D0441C8E4632349E4FDC074A4EF02D \
-      5A52880781F755608BF815FC910DEB46F53EA312 \
-    ; do \
+    for key in $GPG_KEYS; do \
       gpg --batch --keyserver ha.pool.sks-keyservers.net --keyserver-options timeout=10 --recv-keys "$key" || \
       gpg --batch --keyserver hkp://ipv4.pool.sks-keyservers.net --keyserver-options timeout=10 --recv-keys "$key" || \
       gpg --batch --keyserver hkp://pgp.mit.edu:80 --keyserver-options timeout=10 --recv-keys "$key" ; \
