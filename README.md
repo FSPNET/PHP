@@ -16,7 +16,6 @@ FSP Network Gen2 Server Infrastructure - PHP
 ## Supported Package Registry
 
 - [Docker.io](https://hub.docker.com/r/fspnetwork/php/)
-- [GitHub Package Registry](https://github.com/FSPNET/PHP/packages/43000/versions)
 
 ## Usage
 
