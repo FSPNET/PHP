@@ -9,7 +9,8 @@ FSP Network Gen2 Server Infrastructure - PHP
 ## Supported tags
 
 - [`edge` (Dockerfile)](https://github.com/FSPNET/PHP/blob/master/Dockerfile)
-- [`latest`, `7`, `7.4`, `7.4.2` (Dockerfile)](https://github.com/FSPNET/PHP/tree/7.4.2/Dockerfile)
+- [`latest`, `7`, `7.4`, `7.4.3` (Dockerfile)](https://github.com/FSPNET/PHP/tree/7.4.3/Dockerfile)
+- [`7.4.2`](https://github.com/FSPNET/PHP/tree/7.4.2/Dockerfile)
 - [`7.4.1`](https://github.com/FSPNET/PHP/tree/7.4.1/Dockerfile)
 - [`7.3`, `7.3.12` (Dockerfile)](https://github.com/FSPNET/PHP/tree/7.3.12/Dockerfile)
 
