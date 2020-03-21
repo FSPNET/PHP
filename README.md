@@ -2,6 +2,7 @@
 
 FSP Network Gen2 Server Infrastructure - PHP
 
+![Docker Build](https://github.com/FSPNET/PHP/workflows/Docker%20Build/badge.svg)
 [![MicroBadger Size](https://img.shields.io/microbadger/image-size/fspnetwork/php.svg?style=flat-square)](https://microbadger.com/#/images/fspnetwork/php)
 [![LICENSE](https://img.shields.io/badge/license-Anti%20996-blue.svg?style=flat-square)](https://github.com/996icu/996.ICU/blob/master/LICENSE)
 [![996.icu](https://img.shields.io/badge/link-996.icu-red.svg?style=flat-square)](https://996.icu)
@@ -9,7 +10,8 @@ FSP Network Gen2 Server Infrastructure - PHP
 ## Supported tags
 
 - [`edge` (Dockerfile)](https://github.com/FSPNET/PHP/blob/master/Dockerfile)
-- [`latest`, `7`, `7.4`, `7.4.3` (Dockerfile)](https://github.com/FSPNET/PHP/tree/7.4.3/Dockerfile)
+- [`latest`, `7`, `7.4`, `7.4.4` (Dockerfile)](https://github.com/FSPNET/PHP/tree/7.4.4/Dockerfile)
+- [`7.4.3`](https://github.com/FSPNET/PHP/tree/7.4.3/Dockerfile)
 - [`7.4.2`](https://github.com/FSPNET/PHP/tree/7.4.2/Dockerfile)
 - [`7.4.1`](https://github.com/FSPNET/PHP/tree/7.4.1/Dockerfile)
 - [`7.3`, `7.3.12` (Dockerfile)](https://github.com/FSPNET/PHP/tree/7.3.12/Dockerfile)
