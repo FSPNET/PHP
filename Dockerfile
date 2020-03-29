@@ -1,4 +1,4 @@
-FROM alpine:3.11.3 as builder
+FROM alpine:3.11.5 as builder
 
 ARG PHP_VERSION=7.4.4
 ARG COMPOSER_VERSION=1.10.1
@@ -305,7 +305,7 @@ RUN strip --strip-all `php-config --extension-dir`/*.so
 
 
 
-FROM alpine:3.11.3
+FROM alpine:3.11.5
 
 COPY --from=builder /usr/local/ /usr/local/
 
