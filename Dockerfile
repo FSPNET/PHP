@@ -126,13 +126,11 @@ RUN apk add --no-cache \
     libxpm-dev \
     freetype-dev \
   && docker-php-ext-configure gd \
-    --with-gd \
-    --with-webp-dir=/usr \
-    --with-jpeg-dir=/usr \
-    --with-png-dir=/usr \
-    --with-zlib-dir=/usr \
-    --with-xpm-dir=/usr \
-    --with-freetype-dir=/usr \
+    --enable-gd \
+    --with-webp=/usr \
+    --with-jpeg=/usr \
+    --with-xpm=/usr \
+    --with-freetype \
     --enable-gd-jis-conv \
   && docker-php-ext-install -j$(getconf _NPROCESSORS_ONLN) gd \
   && (rm -rf /usr/local/lib/php/test/gd || true) \
