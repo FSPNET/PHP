@@ -7,20 +7,17 @@ on:
 jobs:
   publish-to-docker-io:
     name: Publish to Docker.io
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
     steps:
-    - uses: actions/checkout@v1
-    - uses: jerray/publish-docker-action@master
+    - uses: actions/checkout@v2
+    - uses: elgohr/Publish-Docker-Github-Action@master
       with:
+        name: fspnetwork/php
         username: ${{ secrets.DOCKER_USERNAME }}
         password: ${{ secrets.DOCKER_TOKEN }}
-        repository: fspnetwork/php
-        cache: fspnetwork/php
-        auto_tag: true
-    - uses: jerray/publish-docker-action@master
+        tag_semver: true
+    - uses: elgohr/Publish-Docker-Github-Action@master
       with:
+        name: fspnetwork/php
         username: ${{ secrets.DOCKER_USERNAME }}
         password: ${{ secrets.DOCKER_TOKEN }}
-        repository: fspnetwork/php
-        cache: fspnetwork/php
-        tags: latest
