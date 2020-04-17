@@ -1,6 +1,6 @@
 FROM alpine:3.11.5 as builder
 
-ARG PHP_VERSION=7.4.4
+ARG PHP_VERSION=7.4.5
 ARG COMPOSER_VERSION=1.10.1
 ARG PHP_URL=https://www.php.net/get/php-$PHP_VERSION.tar.xz/from/this/mirror
 ARG PHP_ASC_URL=https://www.php.net/get/php-$PHP_VERSION.tar.xz.asc/from/this/mirror
