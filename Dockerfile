@@ -43,6 +43,7 @@ RUN set -xe \
     oniguruma-dev \
     libxml2-dev \
     sqlite-dev \
+    icu-dev \
   \
   && export CFLAGS="-fstack-protector-strong -fpic -fpie -O3" \
     CPPFLAGS="-fstack-protector-strong -fpic -fpie -O3" \
